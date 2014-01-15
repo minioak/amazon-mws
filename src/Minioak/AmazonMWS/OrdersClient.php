@@ -2,7 +2,7 @@
 
 namespace Minioak\AmazonMWS;
 
-class OrdersClient extends MarketplaceWebServiceOrders_Client 
+class OrdersClient extends \MarketplaceWebServiceOrders_Client 
 {
         
 }
