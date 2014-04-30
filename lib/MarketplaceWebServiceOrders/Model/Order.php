@@ -487,6 +487,17 @@ require_once (dirname(__FILE__) . '/../Model.php');
         return $this;
     }
 
+    public function getShipServiceLevelCategory()
+    {
+        return $this->_fields['ShipServiceLevelCategory']['FieldValue'];
+    }
+
+    public function setShipServiceLevelCategory()
+    {
+        $this->_fields['ShipServiceLevelCategory']['FieldValue'] = $value;
+        return $this;
+    }
+
     /**
      * Check to see if ShipServiceLevel is set.
      *
