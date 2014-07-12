@@ -31,7 +31,7 @@ define('CONVERTED_HEADERS_KEY', 'HEADERS');
  * MarketplaceWebService_Client is an implementation of MarketplaceWebService
  *
  */
-class MarketplaceWebService_Client implements MarketplaceWebService_Interface
+class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interface
 {
 
   /** @var string */
@@ -1856,9 +1856,9 @@ class MarketplaceWebService_Client implements MarketplaceWebService_Interface
       if ($request->isSetSchedule()) {
         $parameters['Schedule'] =  $request->getSchedule();
       }
-      if ($request->isSetScheduledDate()) {
-        $parameters['ScheduledDate'] =
-        $this->getFormattedTimestamp($request->getScheduledDate());
+      if ($request->isSetScheduleDate()) {
+        $parameters['ScheduleDate'] =
+        $this->getFormattedTimestamp($request->getScheduleDate());
       }
       
 	  return array(CONVERTED_PARAMETERS_KEY => $parameters, CONVERTED_HEADERS_KEY => $this->defaultHeaders);

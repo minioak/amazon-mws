@@ -95,7 +95,7 @@ $config = array (
 //  'Merchant' => MERCHANT_ID,
 //  'ReportType' => '_GET_ORDERS_DATA_',
 //  'Schedule' => '_1_HOUR_',
-//  'ScheduledDate' => new DateTime('now', new DateTimeZone('UTC')),
+//  'ScheduleDate' => new DateTime('now', new DateTimeZone('UTC')),
 //);
 //
 //$request = new MarketplaceWebService_Model_ManageReportScheduleRequest($parameters);
@@ -104,7 +104,7 @@ $config = array (
 //$request->setMerchant(MERCHANT_ID);
 //$request->setReportType('_GET_ORDERS_DATA_');
 //$request->setSchedule('_1_HOUR_');
-//$request->setScheduledDate(new DateTime('now', new DateTimeZone('UTC')));
+//$request->setScheduleDate(new DateTime('now', new DateTimeZone('UTC')));
 //
 //invokeManageReportSchedule($service, $request);
 
@@ -134,7 +134,7 @@ $config = array (
                         echo("                Count\n");
                         echo("                    " . $manageReportScheduleResult->getCount() . "\n");
                     }
-                    $reportScheduleList = $manageReportScheduleResult->getReportSchedule();
+                    $reportScheduleList = $manageReportScheduleResult->getReportScheduleList();
                     foreach ($reportScheduleList as $reportSchedule) {
                         echo("                ReportSchedule\n");
                         if ($reportSchedule->isSetReportType()) 
