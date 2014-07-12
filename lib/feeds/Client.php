@@ -19,7 +19,7 @@
 /**
  *  @see MarketplaceWebService_Interface
  */
-require_once ('feeds/Interface.php');
+require_once (dirname(__FILE__) . '/Interface.php');
 require_once ('RequestType.php');
 
 define('CONVERTED_PARAMETERS_KEY', 'PARAMETERS');
@@ -262,10 +262,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReport($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportRequest) {
-      require_once ('feeds/Model/GetReportRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportRequest.php');
       $request = new MarketplaceWebService_Model_GetReportRequest($request);
     }
-    require_once ('feeds/Model/GetReportResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportResponse.php');
 
     $httpResponse = $this->invoke($this->convertGetReport($request), $request->getReport());
     $response = MarketplaceWebService_Model_GetReportResponse::fromXML($httpResponse['ResponseBody']);
@@ -288,10 +288,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportScheduleCount($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportScheduleCountRequest) {
-      require_once ('feeds/Model/GetReportScheduleCountRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportScheduleCountRequest.php');
       $request = new MarketplaceWebService_Model_GetReportScheduleCountRequest($request);
     }
-    require_once ('feeds/Model/GetReportScheduleCountResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportScheduleCountResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportScheduleCount($request));
     $response = MarketplaceWebService_Model_GetReportScheduleCountResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -313,10 +313,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportRequestListByNextToken($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest) {
-      require_once ('feeds/Model/GetReportRequestListByNextTokenRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportRequestListByNextTokenRequest.php');
       $request = new MarketplaceWebService_Model_GetReportRequestListByNextTokenRequest($request);
     }
-    require_once ('feeds/Model/GetReportRequestListByNextTokenResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportRequestListByNextTokenResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportRequestListByNextToken($request));
     $response = MarketplaceWebService_Model_GetReportRequestListByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -338,10 +338,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function updateReportAcknowledgements($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_UpdateReportAcknowledgementsRequest) {
-      require_once ('feeds/Model/UpdateReportAcknowledgementsRequest.php');
+      require_once (dirname(__FILE__) . '/Model/UpdateReportAcknowledgementsRequest.php');
       $request = new MarketplaceWebService_Model_UpdateReportAcknowledgementsRequest($request);
     }
-    require_once ('feeds/Model/UpdateReportAcknowledgementsResponse.php');
+    require_once (dirname(__FILE__) . '/Model/UpdateReportAcknowledgementsResponse.php');
     $httpResponse = $this->invoke($this->convertUpdateReportAcknowledgements($request));
     $response = MarketplaceWebService_Model_UpdateReportAcknowledgementsResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -367,10 +367,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function submitFeed($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_SubmitFeedRequest) {
-      require_once ('feeds/Model/SubmitFeedRequest.php');
+      require_once (dirname(__FILE__) . '/Model/SubmitFeedRequest.php');
       $request = new MarketplaceWebService_Model_SubmitFeedRequest($request);
     }
-    require_once ('feeds/Model/SubmitFeedResponse.php');
+    require_once (dirname(__FILE__) . '/Model/SubmitFeedResponse.php');
     $httpResponse = $this->invoke($this->convertSubmitFeed($request), $request->getFeedContent(), $request->getContentMd5());
     $response = MarketplaceWebService_Model_SubmitFeedResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -394,10 +394,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportCount($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportCountRequest) {
-      require_once ('feeds/Model/GetReportCountRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportCountRequest.php');
       $request = new MarketplaceWebService_Model_GetReportCountRequest($request);
     }
-    require_once ('feeds/Model/GetReportCountResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportCountResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportCount($request));
     $response = MarketplaceWebService_Model_GetReportCountResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -419,10 +419,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getFeedSubmissionListByNextToken($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetFeedSubmissionListByNextTokenRequest) {
-      require_once ('feeds/Model/GetFeedSubmissionListByNextTokenRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionListByNextTokenRequest.php');
       $request = new MarketplaceWebService_Model_GetFeedSubmissionListByNextTokenRequest($request);
     }
-    require_once ('feeds/Model/GetFeedSubmissionListByNextTokenResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionListByNextTokenResponse.php');
     $httpResponse = $this->invoke($this->convertGetFeedSubmissionListByNextToken($request));
     $response = MarketplaceWebService_Model_GetFeedSubmissionListByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -445,10 +445,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function cancelFeedSubmissions($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_CancelFeedSubmissionsRequest) {
-      require_once ('feeds/Model/CancelFeedSubmissionsRequest.php');
+      require_once (dirname(__FILE__) . '/Model/CancelFeedSubmissionsRequest.php');
       $request = new MarketplaceWebService_Model_CancelFeedSubmissionsRequest($request);
     }
-    require_once ('feeds/Model/CancelFeedSubmissionsResponse.php');
+    require_once (dirname(__FILE__) . '/Model/CancelFeedSubmissionsResponse.php');
     $httpResponse = $this->invoke($this->convertCancelFeedSubmissions($request));
     $response = MarketplaceWebService_Model_CancelFeedSubmissionsResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -470,10 +470,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function requestReport($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_RequestReportRequest) {
-      require_once ('feeds/Model/RequestReportRequest.php');
+      require_once (dirname(__FILE__) . '/Model/RequestReportRequest.php');
       $request = new MarketplaceWebService_Model_RequestReportRequest($request);
     }
-    require_once ('feeds/Model/RequestReportResponse.php');
+    require_once (dirname(__FILE__) . '/Model/RequestReportResponse.php');
     $httpResponse = $this->invoke($this->convertRequestReport($request));
     $response = MarketplaceWebService_Model_RequestReportResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -495,10 +495,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getFeedSubmissionCount($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetFeedSubmissionCountRequest) {
-      require_once ('feeds/Model/GetFeedSubmissionCountRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionCountRequest.php');
       $request = new MarketplaceWebService_Model_GetFeedSubmissionCountRequest($request);
     }
-    require_once ('feeds/Model/GetFeedSubmissionCountResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionCountResponse.php');
     $httpResponse = $this->invoke($this->convertGetFeedSubmissionCount($request));
     $response = MarketplaceWebService_Model_GetFeedSubmissionCountResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -521,10 +521,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function cancelReportRequests($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_CancelReportRequestsRequest) {
-      require_once ('feeds/Model/CancelReportRequestsRequest.php');
+      require_once (dirname(__FILE__) . '/Model/CancelReportRequestsRequest.php');
       $request = new MarketplaceWebService_Model_CancelReportRequestsRequest($request);
     }
-    require_once ('feeds/Model/CancelReportRequestsResponse.php');
+    require_once (dirname(__FILE__) . '/Model/CancelReportRequestsResponse.php');
     $httpResponse = $this->invoke($this->convertCancelReportRequests($request));
     $response = MarketplaceWebService_Model_CancelReportRequestsResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -547,10 +547,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportList($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportListRequest) {
-      require_once ('feeds/Model/GetReportListRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportListRequest.php');
       $request = new MarketplaceWebService_Model_GetReportListRequest($request);
     }
-    require_once ('feeds/Model/GetReportListResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportListResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportList($request));
     $response = MarketplaceWebService_Model_GetReportListResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -572,10 +572,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getFeedSubmissionResult($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetFeedSubmissionResultRequest) {
-      require_once ('feeds/Model/GetFeedSubmissionResultRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionResultRequest.php');
       $request = new MarketplaceWebService_Model_GetFeedSubmissionResultRequest($request);
     }
-    require_once ('feeds/Model/GetFeedSubmissionResultResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionResultResponse.php');
     $httpResponse = $this->invoke($this->convertGetFeedSubmissionResult($request), $request->getFeedSubmissionResult());
     $response = MarketplaceWebService_Model_GetFeedSubmissionResultResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -597,10 +597,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getFeedSubmissionList($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetFeedSubmissionListRequest) {
-      require_once ('feeds/Model/GetFeedSubmissionListRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionListRequest.php');
       $request = new MarketplaceWebService_Model_GetFeedSubmissionListRequest($request);
     }
-    require_once ('feeds/Model/GetFeedSubmissionListResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetFeedSubmissionListResponse.php');
     $httpResponse = $this->invoke($this->convertGetFeedSubmissionList($request));
     $response = MarketplaceWebService_Model_GetFeedSubmissionListResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -622,10 +622,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportRequestList($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportRequestListRequest) {
-      require_once ('feeds/Model/GetReportRequestListRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportRequestListRequest.php');
       $request = new MarketplaceWebService_Model_GetReportRequestListRequest($request);
     }
-    require_once ('feeds/Model/GetReportRequestListResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportRequestListResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportRequestList($request));
     $response = MarketplaceWebService_Model_GetReportRequestListResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -647,10 +647,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportScheduleListByNextToken($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportScheduleListByNextTokenRequest) {
-      require_once ('feeds/Model/GetReportScheduleListByNextTokenRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportScheduleListByNextTokenRequest.php');
       $request = new MarketplaceWebService_Model_GetReportScheduleListByNextTokenRequest($request);
     }
-    require_once ('feeds/Model/GetReportScheduleListByNextTokenResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportScheduleListByNextTokenResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportScheduleListByNextToken($request));
     $response = MarketplaceWebService_Model_GetReportScheduleListByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -672,10 +672,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportListByNextToken($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportListByNextTokenRequest) {
-      require_once ('feeds/Model/GetReportListByNextTokenRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportListByNextTokenRequest.php');
       $request = new MarketplaceWebService_Model_GetReportListByNextTokenRequest($request);
     }
-    require_once ('feeds/Model/GetReportListByNextTokenResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportListByNextTokenResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportListByNextToken($request));
     $response = MarketplaceWebService_Model_GetReportListByNextTokenResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -698,10 +698,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function manageReportSchedule($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_ManageReportScheduleRequest) {
-      require_once ('feeds/Model/ManageReportScheduleRequest.php');
+      require_once (dirname(__FILE__) . '/Model/ManageReportScheduleRequest.php');
       $request = new MarketplaceWebService_Model_ManageReportScheduleRequest($request);
     }
-    require_once ('feeds/Model/ManageReportScheduleResponse.php');
+    require_once (dirname(__FILE__) . '/Model/ManageReportScheduleResponse.php');
     $httpResponse = $this->invoke($this->convertManageReportSchedule($request));
     $response = MarketplaceWebService_Model_ManageReportScheduleResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -724,10 +724,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportRequestCount($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportRequestCountRequest) {
-      require_once ('feeds/Model/GetReportRequestCountRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportRequestCountRequest.php');
       $request = new MarketplaceWebService_Model_GetReportRequestCountRequest($request);
     }
-    require_once ('feeds/Model/GetReportRequestCountResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportRequestCountResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportRequestCount($request));
     $response = MarketplaceWebService_Model_GetReportRequestCountResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -749,10 +749,10 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   public function getReportScheduleList($request)
   {
     if (!$request instanceof MarketplaceWebService_Model_GetReportScheduleListRequest) {
-      require_once ('feeds/Model/GetReportScheduleListRequest.php');
+      require_once (dirname(__FILE__) . '/Model/GetReportScheduleListRequest.php');
       $request = new MarketplaceWebService_Model_GetReportScheduleListRequest($request);
     }
-    require_once ('feeds/Model/GetReportScheduleListResponse.php');
+    require_once (dirname(__FILE__) . '/Model/GetReportScheduleListResponse.php');
     $httpResponse = $this->invoke($this->convertGetReportScheduleList($request));
     $response = MarketplaceWebService_Model_GetReportScheduleListResponse::fromXML($httpResponse['ResponseBody']);
     $response->setResponseHeaderMetadata($httpResponse['ResponseHeaderMetadata']);
@@ -829,7 +829,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
           		
           	case 500:
           	case 503:
-          		require_once('feeds/Model/ErrorResponse.php');
+          		require_once(dirname(__FILE__) . '/Model/ErrorResponse.php');
 		          $errorResponse = MarketplaceWebService_Model_ErrorResponse::fromXML($response['ResponseBody']);
 		          
 		          // We will not retry throttling errors since this would just add to the throttling problem.
@@ -851,7 +851,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
           
           /* Rethrow on deserializer error */
         } catch (Exception $e) {
-          require_once ('feeds/Exception.php');
+          require_once (dirname(__FILE__) . '/Exception.php');
             throw new MarketplaceWebService_Exception(array('Exception' => $e, 'Message' => $e->getMessage()));
         }
 
@@ -887,7 +887,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
       $exProps["Message"] = "Internal Error";
     }
     
-    require_once ('feeds/Exception.php');
+    require_once (dirname(__FILE__) . '/Exception.php');
     return new MarketplaceWebService_Exception($exProps);
   }
 
@@ -921,7 +921,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
 
     $parsedHeader = $this->parseHttpHeader($header);
 
-    require_once('feeds/Model/ResponseHeaderMetadata.php');
+    require_once(dirname(__FILE__) . '/Model/ResponseHeaderMetadata.php');
     $responseHeaderMetadata = new MarketplaceWebService_Model_ResponseHeaderMetadata(
               $parsedHeader['x-mws-request-id'],
               $parsedHeader['x-mws-response-context'],
@@ -971,7 +971,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
     rewind($streamHandle);
 
     if (!($receivedMd5Hash === $expectedMd5Hash)) {
-      require_once ('feeds/Exception.php');
+      require_once (dirname(__FILE__) . '/Exception.php');
       throw new MarketplaceWebService_Exception(
           array(
             'Message' => 'Received Content-MD5 = ' . $receivedMd5Hash . ' but expected ' . $expectedMd5Hash, 
@@ -1087,7 +1087,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
     if ($requestType == RequestType::POST_UPLOAD) {
 
       if (is_null($streamHandle) || !is_resource($streamHandle)) {
-        require_once ('feeds/Exception.php');
+        require_once (dirname(__FILE__) . '/Exception.php');
         throw new MarketplaceWebService_Exception(
           array ('Message' => 'Missing stream resource.'));
       }
@@ -1494,7 +1494,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
       if ($request->isSetFeedSubmissionIdList()) {
         $feedSubmissionIdList = $request->getFeedSubmissionIdList();
         foreach  ($feedSubmissionIdList->getId() as $idIndex => $id) {
-          $parameters['FeedSubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
+          $parameters[dirname(__FILE__) . 'ubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
         }
       }
       if ($request->isSetFeedTypeList()) {
@@ -1694,7 +1694,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
         $parameters['Merchant'] =  $request->getMerchant();
       }
       if ($request->isSetFeedSubmissionId()) {
-        $parameters['FeedSubmissionId'] =  $request->getFeedSubmissionId();
+        $parameters[dirname(__FILE__) . 'ubmissionId'] =  $request->getFeedSubmissionId();
       }
 
       return array(CONVERTED_PARAMETERS_KEY => $parameters, CONVERTED_HEADERS_KEY => $this->defaultHeaders);
@@ -1717,7 +1717,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
       if ($request->isSetFeedSubmissionIdList()) {
         $feedSubmissionIdList = $request->getFeedSubmissionIdList();
         foreach  ($feedSubmissionIdList->getId() as $idIndex => $id) {
-          $parameters['FeedSubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
+          $parameters[dirname(__FILE__) . 'ubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
         }
       }
       if ($request->isSetMaxCount()) {
