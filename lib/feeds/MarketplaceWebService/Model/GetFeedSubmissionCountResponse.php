@@ -19,9 +19,7 @@
 /**
  *  @see MarketplaceWebService_Model
  */
-require_once ('MarketplaceWebService/Model.php');  
-
-    
+require_once (dirname(__FILE__) . '/../Model.php'); 
 
 /**
  * MarketplaceWebService_Model_GetFeedSubmissionCountResponse
