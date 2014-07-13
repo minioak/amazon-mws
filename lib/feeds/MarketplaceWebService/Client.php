@@ -1170,7 +1170,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   private function addRequiredParameters(array $parameters)
   {
     $parameters['AWSAccessKeyId'] = $this->awsAccessKeyId;
-    $parameters['Timestamp'] = $this->getFormattedTimestamp(new DateTime('now', new DateTimeZone('UTC')));
+    $parameters['Timestamp'] = $this->getFormattedTimestamp(new DateTime(now(), new DateTimeZone('UTC')));
     $parameters['Version'] = self::SERVICE_VERSION;
     $parameters['SignatureVersion'] = $this->config['SignatureVersion'];
     if ($parameters['SignatureVersion'] > 1) {
@@ -1494,7 +1494,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
       if ($request->isSetFeedSubmissionIdList()) {
         $feedSubmissionIdList = $request->getFeedSubmissionIdList();
         foreach  ($feedSubmissionIdList->getId() as $idIndex => $id) {
-          $parameters[dirname(__FILE__) . 'ubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
+          $parameters['FeedSubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
         }
       }
       if ($request->isSetFeedTypeList()) {
@@ -1694,7 +1694,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
         $parameters['Merchant'] =  $request->getMerchant();
       }
       if ($request->isSetFeedSubmissionId()) {
-        $parameters[dirname(__FILE__) . 'ubmissionId'] =  $request->getFeedSubmissionId();
+        $parameters['FeedSubmissionId'] =  $request->getFeedSubmissionId();
       }
 
       return array(CONVERTED_PARAMETERS_KEY => $parameters, CONVERTED_HEADERS_KEY => $this->defaultHeaders);
@@ -1717,7 +1717,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
       if ($request->isSetFeedSubmissionIdList()) {
         $feedSubmissionIdList = $request->getFeedSubmissionIdList();
         foreach  ($feedSubmissionIdList->getId() as $idIndex => $id) {
-          $parameters[dirname(__FILE__) . 'ubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
+          $parameters['FeedSubmissionIdList' . '.' . 'Id' . '.'  . ($idIndex + 1)] =  $id;
         }
       }
       if ($request->isSetMaxCount()) {
