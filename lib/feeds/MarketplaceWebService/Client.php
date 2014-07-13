@@ -1170,7 +1170,7 @@ class MarketplaceWebServiceFeeds_Client implements MarketplaceWebService_Interfa
   private function addRequiredParameters(array $parameters)
   {
     $parameters['AWSAccessKeyId'] = $this->awsAccessKeyId;
-    $parameters['Timestamp'] = $this->getFormattedTimestamp(new DateTime(now(), new DateTimeZone('UTC')));
+    $parameters['Timestamp'] = $this->getFormattedTimestamp(new DateTime('now', new DateTimeZone('UTC')));
     $parameters['Version'] = self::SERVICE_VERSION;
     $parameters['SignatureVersion'] = $this->config['SignatureVersion'];
     if ($parameters['SignatureVersion'] > 1) {
