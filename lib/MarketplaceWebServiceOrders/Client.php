@@ -394,7 +394,7 @@ class MarketplaceWebServiceOrders_Client implements MarketplaceWebServiceOrders_
      */
     public function __construct($awsAccessKeyId, $awsSecretAccessKey, $applicationName, $applicationVersion, $config = null)
     {
-        default_charset('UTF-8');
+        ini_set( 'default_charset', 'UTF-8' );
         
         $this->_awsAccessKeyId = $awsAccessKeyId;
         $this->_awsSecretAccessKey = $awsSecretAccessKey;
