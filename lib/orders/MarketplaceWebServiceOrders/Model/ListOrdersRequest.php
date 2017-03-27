@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 /**
@@ -31,18 +31,19 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * <ul>
  * 
  * <li>SellerId: string</li>
+ * <li>MWSAuthToken: string</li>
  * <li>CreatedAfter: string</li>
  * <li>CreatedBefore: string</li>
  * <li>LastUpdatedAfter: string</li>
  * <li>LastUpdatedBefore: string</li>
- * <li>OrderStatus: MarketplaceWebServiceOrders_Model_OrderStatusList</li>
- * <li>MarketplaceId: MarketplaceWebServiceOrders_Model_MarketplaceIdList</li>
- * <li>FulfillmentChannel: MarketplaceWebServiceOrders_Model_FulfillmentChannelList</li>
- * <li>PaymentMethod: MarketplaceWebServiceOrders_Model_PaymentMethodList</li>
+ * <li>OrderStatus: array</li>
+ * <li>MarketplaceId: array</li>
+ * <li>FulfillmentChannel: array</li>
+ * <li>PaymentMethod: array</li>
  * <li>BuyerEmail: string</li>
  * <li>SellerOrderId: string</li>
  * <li>MaxResultsPerPage: int</li>
- * <li>TFMShipmentStatus: MarketplaceWebServiceOrders_Model_TFMShipmentStatusList</li>
+ * <li>TFMShipmentStatus: array</li>
  *
  * </ul>
  */
@@ -52,19 +53,20 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function __construct($data = null)
     {
     $this->_fields = array (
-'SellerId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'CreatedAfter' => array('FieldValue' => null, 'FieldType' => 'string'),
-'CreatedBefore' => array('FieldValue' => null, 'FieldType' => 'string'),
-'LastUpdatedAfter' => array('FieldValue' => null, 'FieldType' => 'string'),
-'LastUpdatedBefore' => array('FieldValue' => null, 'FieldType' => 'string'),
-'OrderStatus' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_OrderStatusList'),
-'MarketplaceId' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_MarketplaceIdList'),
-'FulfillmentChannel' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_FulfillmentChannelList'),
-'PaymentMethod' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_PaymentMethodList'),
-'BuyerEmail' => array('FieldValue' => null, 'FieldType' => 'string'),
-'SellerOrderId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'MaxResultsPerPage' => array('FieldValue' => null, 'FieldType' => 'int'),
-'TFMShipmentStatus' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_TFMShipmentStatusList'),
+    'SellerId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'MWSAuthToken' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'CreatedAfter' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'CreatedBefore' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'LastUpdatedAfter' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'LastUpdatedBefore' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'OrderStatus' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'Status'),
+    'MarketplaceId' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'Id'),
+    'FulfillmentChannel' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'Channel'),
+    'PaymentMethod' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'Method'),
+    'BuyerEmail' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'SellerOrderId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'MaxResultsPerPage' => array('FieldValue' => null, 'FieldType' => 'int'),
+    'TFMShipmentStatus' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'Status'),
     );
     parent::__construct($data);
     }
@@ -112,6 +114,52 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function withSellerId($value)
     {
         $this->setSellerId($value);
+        return $this;
+    }
+
+    /**
+     * Get the value of the MWSAuthToken property.
+     *
+     * @return String MWSAuthToken.
+     */
+    public function getMWSAuthToken()
+    {
+        return $this->_fields['MWSAuthToken']['FieldValue'];
+    }
+
+    /**
+     * Set the value of the MWSAuthToken property.
+     *
+     * @param string mwsAuthToken
+     * @return this instance
+     */
+    public function setMWSAuthToken($value)
+    {
+        $this->_fields['MWSAuthToken']['FieldValue'] = $value;
+        return $this;
+    }
+
+    /**
+     * Check to see if MWSAuthToken is set.
+     *
+     * @return true if MWSAuthToken is set.
+     */
+    public function isSetMWSAuthToken()
+    {
+                return !is_null($this->_fields['MWSAuthToken']['FieldValue']);
+            }
+
+    /**
+     * Set the value of MWSAuthToken, return this.
+     *
+     * @param mwsAuthToken
+     *             The new value to set.
+     *
+     * @return This instance.
+     */
+    public function withMWSAuthToken($value)
+    {
+        $this->setMWSAuthToken($value);
         return $this;
     }
 
@@ -302,23 +350,38 @@ require_once (dirname(__FILE__) . '/../Model.php');
     /**
      * Get the value of the OrderStatus property.
      *
-     * @return OrderStatusList OrderStatus.
+     * @return List<String> OrderStatus.
      */
     public function getOrderStatus()
     {
+        if ($this->_fields['OrderStatus']['FieldValue'] == null)
+        {
+            $this->_fields['OrderStatus']['FieldValue'] = array();
+        }
         return $this->_fields['OrderStatus']['FieldValue'];
     }
 
     /**
      * Set the value of the OrderStatus property.
      *
-     * @param MarketplaceWebServiceOrders_Model_OrderStatusList orderStatus
+     * @param array orderStatus
      * @return this instance
      */
     public function setOrderStatus($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['OrderStatus']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear OrderStatus.
+     */
+    public function unsetOrderStatus()
+    {
+        $this->_fields['OrderStatus']['FieldValue'] = array();
     }
 
     /**
@@ -328,43 +391,61 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetOrderStatus()
     {
-                return !is_null($this->_fields['OrderStatus']['FieldValue']);
+                return !empty($this->_fields['OrderStatus']['FieldValue']);
             }
 
     /**
-     * Set the value of OrderStatus, return this.
+     * Add values for OrderStatus, return this.
      *
      * @param orderStatus
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withOrderStatus($value)
+    public function withOrderStatus()
     {
-        $this->setOrderStatus($value);
+        foreach (func_get_args() as $OrderStatus)
+        {
+            $this->_fields['OrderStatus']['FieldValue'][] = $OrderStatus;
+        }
         return $this;
     }
 
     /**
      * Get the value of the MarketplaceId property.
      *
-     * @return MarketplaceIdList MarketplaceId.
+     * @return List<String> MarketplaceId.
      */
     public function getMarketplaceId()
     {
+        if ($this->_fields['MarketplaceId']['FieldValue'] == null)
+        {
+            $this->_fields['MarketplaceId']['FieldValue'] = array();
+        }
         return $this->_fields['MarketplaceId']['FieldValue'];
     }
 
     /**
      * Set the value of the MarketplaceId property.
      *
-     * @param MarketplaceWebServiceOrders_Model_MarketplaceIdList marketplaceId
+     * @param array marketplaceId
      * @return this instance
      */
     public function setMarketplaceId($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['MarketplaceId']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear MarketplaceId.
+     */
+    public function unsetMarketplaceId()
+    {
+        $this->_fields['MarketplaceId']['FieldValue'] = array();
     }
 
     /**
@@ -374,43 +455,61 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetMarketplaceId()
     {
-                return !is_null($this->_fields['MarketplaceId']['FieldValue']);
+                return !empty($this->_fields['MarketplaceId']['FieldValue']);
             }
 
     /**
-     * Set the value of MarketplaceId, return this.
+     * Add values for MarketplaceId, return this.
      *
      * @param marketplaceId
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withMarketplaceId($value)
+    public function withMarketplaceId()
     {
-        $this->setMarketplaceId($value);
+        foreach (func_get_args() as $MarketplaceId)
+        {
+            $this->_fields['MarketplaceId']['FieldValue'][] = $MarketplaceId;
+        }
         return $this;
     }
 
     /**
      * Get the value of the FulfillmentChannel property.
      *
-     * @return FulfillmentChannelList FulfillmentChannel.
+     * @return List<String> FulfillmentChannel.
      */
     public function getFulfillmentChannel()
     {
+        if ($this->_fields['FulfillmentChannel']['FieldValue'] == null)
+        {
+            $this->_fields['FulfillmentChannel']['FieldValue'] = array();
+        }
         return $this->_fields['FulfillmentChannel']['FieldValue'];
     }
 
     /**
      * Set the value of the FulfillmentChannel property.
      *
-     * @param MarketplaceWebServiceOrders_Model_FulfillmentChannelList fulfillmentChannel
+     * @param array fulfillmentChannel
      * @return this instance
      */
     public function setFulfillmentChannel($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['FulfillmentChannel']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear FulfillmentChannel.
+     */
+    public function unsetFulfillmentChannel()
+    {
+        $this->_fields['FulfillmentChannel']['FieldValue'] = array();
     }
 
     /**
@@ -420,43 +519,61 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetFulfillmentChannel()
     {
-                return !is_null($this->_fields['FulfillmentChannel']['FieldValue']);
+                return !empty($this->_fields['FulfillmentChannel']['FieldValue']);
             }
 
     /**
-     * Set the value of FulfillmentChannel, return this.
+     * Add values for FulfillmentChannel, return this.
      *
      * @param fulfillmentChannel
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withFulfillmentChannel($value)
+    public function withFulfillmentChannel()
     {
-        $this->setFulfillmentChannel($value);
+        foreach (func_get_args() as $FulfillmentChannel)
+        {
+            $this->_fields['FulfillmentChannel']['FieldValue'][] = $FulfillmentChannel;
+        }
         return $this;
     }
 
     /**
      * Get the value of the PaymentMethod property.
      *
-     * @return PaymentMethodList PaymentMethod.
+     * @return List<String> PaymentMethod.
      */
     public function getPaymentMethod()
     {
+        if ($this->_fields['PaymentMethod']['FieldValue'] == null)
+        {
+            $this->_fields['PaymentMethod']['FieldValue'] = array();
+        }
         return $this->_fields['PaymentMethod']['FieldValue'];
     }
 
     /**
      * Set the value of the PaymentMethod property.
      *
-     * @param MarketplaceWebServiceOrders_Model_PaymentMethodList paymentMethod
+     * @param array paymentMethod
      * @return this instance
      */
     public function setPaymentMethod($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['PaymentMethod']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear PaymentMethod.
+     */
+    public function unsetPaymentMethod()
+    {
+        $this->_fields['PaymentMethod']['FieldValue'] = array();
     }
 
     /**
@@ -466,20 +583,23 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetPaymentMethod()
     {
-                return !is_null($this->_fields['PaymentMethod']['FieldValue']);
+                return !empty($this->_fields['PaymentMethod']['FieldValue']);
             }
 
     /**
-     * Set the value of PaymentMethod, return this.
+     * Add values for PaymentMethod, return this.
      *
      * @param paymentMethod
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withPaymentMethod($value)
+    public function withPaymentMethod()
     {
-        $this->setPaymentMethod($value);
+        foreach (func_get_args() as $PaymentMethod)
+        {
+            $this->_fields['PaymentMethod']['FieldValue'][] = $PaymentMethod;
+        }
         return $this;
     }
 
@@ -624,23 +744,38 @@ require_once (dirname(__FILE__) . '/../Model.php');
     /**
      * Get the value of the TFMShipmentStatus property.
      *
-     * @return TFMShipmentStatusList TFMShipmentStatus.
+     * @return List<String> TFMShipmentStatus.
      */
     public function getTFMShipmentStatus()
     {
+        if ($this->_fields['TFMShipmentStatus']['FieldValue'] == null)
+        {
+            $this->_fields['TFMShipmentStatus']['FieldValue'] = array();
+        }
         return $this->_fields['TFMShipmentStatus']['FieldValue'];
     }
 
     /**
      * Set the value of the TFMShipmentStatus property.
      *
-     * @param MarketplaceWebServiceOrders_Model_TFMShipmentStatusList tfmShipmentStatus
+     * @param array tfmShipmentStatus
      * @return this instance
      */
     public function setTFMShipmentStatus($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['TFMShipmentStatus']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear TFMShipmentStatus.
+     */
+    public function unsetTFMShipmentStatus()
+    {
+        $this->_fields['TFMShipmentStatus']['FieldValue'] = array();
     }
 
     /**
@@ -650,20 +785,23 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetTFMShipmentStatus()
     {
-                return !is_null($this->_fields['TFMShipmentStatus']['FieldValue']);
+                return !empty($this->_fields['TFMShipmentStatus']['FieldValue']);
             }
 
     /**
-     * Set the value of TFMShipmentStatus, return this.
+     * Add values for TFMShipmentStatus, return this.
      *
      * @param tfmShipmentStatus
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withTFMShipmentStatus($value)
+    public function withTFMShipmentStatus()
     {
-        $this->setTFMShipmentStatus($value);
+        foreach (func_get_args() as $TFMShipmentStatus)
+        {
+            $this->_fields['TFMShipmentStatus']['FieldValue'][] = $TFMShipmentStatus;
+        }
         return $this;
     }
 

@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 /**
@@ -36,6 +36,7 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * <li>Title: string</li>
  * <li>QuantityOrdered: int</li>
  * <li>QuantityShipped: int</li>
+ * <li>PointsGranted: MarketplaceWebServiceOrders_Model_PointsGrantedDetail</li>
  * <li>ItemPrice: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>ShippingPrice: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>GiftWrapPrice: MarketplaceWebServiceOrders_Model_Money</li>
@@ -44,7 +45,7 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * <li>GiftWrapTax: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>ShippingDiscount: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>PromotionDiscount: MarketplaceWebServiceOrders_Model_Money</li>
- * <li>PromotionIds: MarketplaceWebServiceOrders_Model_PromotionIdList</li>
+ * <li>PromotionIds: array</li>
  * <li>CODFee: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>CODFeeDiscount: MarketplaceWebServiceOrders_Model_Money</li>
  * <li>GiftMessageText: string</li>
@@ -55,6 +56,8 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * <li>ConditionSubtypeId: string</li>
  * <li>ScheduledDeliveryStartDate: string</li>
  * <li>ScheduledDeliveryEndDate: string</li>
+ * <li>PriceDesignation: string</li>
+ * <li>BuyerCustomizedInfo: MarketplaceWebServiceOrders_Model_BuyerCustomizedInfoDetail</li>
  *
  * </ul>
  */
@@ -64,31 +67,34 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function __construct($data = null)
     {
     $this->_fields = array (
-'ASIN' => array('FieldValue' => null, 'FieldType' => 'string'),
-'SellerSKU' => array('FieldValue' => null, 'FieldType' => 'string'),
-'OrderItemId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'Title' => array('FieldValue' => null, 'FieldType' => 'string'),
-'QuantityOrdered' => array('FieldValue' => null, 'FieldType' => 'int'),
-'QuantityShipped' => array('FieldValue' => null, 'FieldType' => 'int'),
-'ItemPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'ShippingPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'GiftWrapPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'ItemTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'ShippingTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'GiftWrapTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'ShippingDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'PromotionDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'PromotionIds' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_PromotionIdList'),
-'CODFee' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'CODFeeDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
-'GiftMessageText' => array('FieldValue' => null, 'FieldType' => 'string'),
-'GiftWrapLevel' => array('FieldValue' => null, 'FieldType' => 'string'),
-'InvoiceData' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_InvoiceData'),
-'ConditionNote' => array('FieldValue' => null, 'FieldType' => 'string'),
-'ConditionId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'ConditionSubtypeId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'ScheduledDeliveryStartDate' => array('FieldValue' => null, 'FieldType' => 'string'),
-'ScheduledDeliveryEndDate' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'ASIN' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'SellerSKU' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'OrderItemId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'Title' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'QuantityOrdered' => array('FieldValue' => null, 'FieldType' => 'int'),
+    'QuantityShipped' => array('FieldValue' => null, 'FieldType' => 'int'),
+    'PointsGranted' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_PointsGrantedDetail'),
+    'ItemPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'ShippingPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'GiftWrapPrice' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'ItemTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'ShippingTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'GiftWrapTax' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'ShippingDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'PromotionDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'PromotionIds' => array('FieldValue' => array(), 'FieldType' => array('string'), 'ListMemberName' => 'PromotionId'),
+    'CODFee' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'CODFeeDiscount' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_Money'),
+    'GiftMessageText' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'GiftWrapLevel' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'InvoiceData' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_InvoiceData'),
+    'ConditionNote' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'ConditionId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'ConditionSubtypeId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'ScheduledDeliveryStartDate' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'ScheduledDeliveryEndDate' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'PriceDesignation' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'BuyerCustomizedInfo' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_BuyerCustomizedInfoDetail'),
     );
     parent::__construct($data);
     }
@@ -366,6 +372,52 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function withQuantityShipped($value)
     {
         $this->setQuantityShipped($value);
+        return $this;
+    }
+
+    /**
+     * Get the value of the PointsGranted property.
+     *
+     * @return PointsGrantedDetail PointsGranted.
+     */
+    public function getPointsGranted()
+    {
+        return $this->_fields['PointsGranted']['FieldValue'];
+    }
+
+    /**
+     * Set the value of the PointsGranted property.
+     *
+     * @param MarketplaceWebServiceOrders_Model_PointsGrantedDetail pointsGranted
+     * @return this instance
+     */
+    public function setPointsGranted($value)
+    {
+        $this->_fields['PointsGranted']['FieldValue'] = $value;
+        return $this;
+    }
+
+    /**
+     * Check to see if PointsGranted is set.
+     *
+     * @return true if PointsGranted is set.
+     */
+    public function isSetPointsGranted()
+    {
+                return !is_null($this->_fields['PointsGranted']['FieldValue']);
+            }
+
+    /**
+     * Set the value of PointsGranted, return this.
+     *
+     * @param pointsGranted
+     *             The new value to set.
+     *
+     * @return This instance.
+     */
+    public function withPointsGranted($value)
+    {
+        $this->setPointsGranted($value);
         return $this;
     }
 
@@ -740,23 +792,38 @@ require_once (dirname(__FILE__) . '/../Model.php');
     /**
      * Get the value of the PromotionIds property.
      *
-     * @return PromotionIdList PromotionIds.
+     * @return List<String> PromotionIds.
      */
     public function getPromotionIds()
     {
+        if ($this->_fields['PromotionIds']['FieldValue'] == null)
+        {
+            $this->_fields['PromotionIds']['FieldValue'] = array();
+        }
         return $this->_fields['PromotionIds']['FieldValue'];
     }
 
     /**
      * Set the value of the PromotionIds property.
      *
-     * @param MarketplaceWebServiceOrders_Model_PromotionIdList promotionIds
+     * @param array promotionIds
      * @return this instance
      */
     public function setPromotionIds($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['PromotionIds']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear PromotionIds.
+     */
+    public function unsetPromotionIds()
+    {
+        $this->_fields['PromotionIds']['FieldValue'] = array();
     }
 
     /**
@@ -766,20 +833,23 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetPromotionIds()
     {
-                return !is_null($this->_fields['PromotionIds']['FieldValue']);
+                return !empty($this->_fields['PromotionIds']['FieldValue']);
             }
 
     /**
-     * Set the value of PromotionIds, return this.
+     * Add values for PromotionIds, return this.
      *
      * @param promotionIds
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withPromotionIds($value)
+    public function withPromotionIds()
     {
-        $this->setPromotionIds($value);
+        foreach (func_get_args() as $PromotionIds)
+        {
+            $this->_fields['PromotionIds']['FieldValue'][] = $PromotionIds;
+        }
         return $this;
     }
 
@@ -1240,6 +1310,98 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function withScheduledDeliveryEndDate($value)
     {
         $this->setScheduledDeliveryEndDate($value);
+        return $this;
+    }
+
+    /**
+     * Get the value of the PriceDesignation property.
+     *
+     * @return String PriceDesignation.
+     */
+    public function getPriceDesignation()
+    {
+        return $this->_fields['PriceDesignation']['FieldValue'];
+    }
+
+    /**
+     * Set the value of the PriceDesignation property.
+     *
+     * @param string priceDesignation
+     * @return this instance
+     */
+    public function setPriceDesignation($value)
+    {
+        $this->_fields['PriceDesignation']['FieldValue'] = $value;
+        return $this;
+    }
+
+    /**
+     * Check to see if PriceDesignation is set.
+     *
+     * @return true if PriceDesignation is set.
+     */
+    public function isSetPriceDesignation()
+    {
+                return !is_null($this->_fields['PriceDesignation']['FieldValue']);
+            }
+
+    /**
+     * Set the value of PriceDesignation, return this.
+     *
+     * @param priceDesignation
+     *             The new value to set.
+     *
+     * @return This instance.
+     */
+    public function withPriceDesignation($value)
+    {
+        $this->setPriceDesignation($value);
+        return $this;
+    }
+
+    /**
+     * Get the value of the BuyerCustomizedInfo property.
+     *
+     * @return BuyerCustomizedInfoDetail BuyerCustomizedInfo.
+     */
+    public function getBuyerCustomizedInfo()
+    {
+        return $this->_fields['BuyerCustomizedInfo']['FieldValue'];
+    }
+
+    /**
+     * Set the value of the BuyerCustomizedInfo property.
+     *
+     * @param MarketplaceWebServiceOrders_Model_BuyerCustomizedInfoDetail buyerCustomizedInfo
+     * @return this instance
+     */
+    public function setBuyerCustomizedInfo($value)
+    {
+        $this->_fields['BuyerCustomizedInfo']['FieldValue'] = $value;
+        return $this;
+    }
+
+    /**
+     * Check to see if BuyerCustomizedInfo is set.
+     *
+     * @return true if BuyerCustomizedInfo is set.
+     */
+    public function isSetBuyerCustomizedInfo()
+    {
+                return !is_null($this->_fields['BuyerCustomizedInfo']['FieldValue']);
+            }
+
+    /**
+     * Set the value of BuyerCustomizedInfo, return this.
+     *
+     * @param buyerCustomizedInfo
+     *             The new value to set.
+     *
+     * @return This instance.
+     */
+    public function withBuyerCustomizedInfo($value)
+    {
+        $this->setBuyerCustomizedInfo($value);
         return $this;
     }
 

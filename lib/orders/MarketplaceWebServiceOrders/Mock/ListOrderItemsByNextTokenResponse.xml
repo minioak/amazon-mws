@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ListOrderItemsByNextTokenResponse xmlns="https://mws.amazonservices.com/Orders/2011-01-01">
+<ListOrderItemsByNextTokenResponse xmlns="https://mws.amazonservices.com/Orders/2013-09-01">
    <ListOrderItemsByNextTokenResult>
         <NextToken>String</NextToken>
         <AmazonOrderId>String</AmazonOrderId>
@@ -11,6 +11,13 @@
                 <Title>String</Title>
                 <QuantityOrdered>1</QuantityOrdered>
                 <QuantityShipped>1</QuantityShipped>
+                <PointsGranted>
+                    <PointsNumber>1</PointsNumber>
+                    <PointsMonetaryValue>
+                        <CurrencyCode>String</CurrencyCode>
+                        <Amount>String</Amount>
+                    </PointsMonetaryValue>
+                </PointsGranted>
                 <ItemPrice>
                     <CurrencyCode>String</CurrencyCode>
                     <Amount>String</Amount>
@@ -67,6 +74,10 @@
                 <ConditionSubtypeId>String</ConditionSubtypeId>
                 <ScheduledDeliveryStartDate>String</ScheduledDeliveryStartDate>
                 <ScheduledDeliveryEndDate>String</ScheduledDeliveryEndDate>
+                <PriceDesignation>String</PriceDesignation>
+                <BuyerCustomizedInfo>
+                    <CustomizedURL>String</CustomizedURL>
+                </BuyerCustomizedInfo>
             </OrderItem>
         </OrderItems>
     </ListOrderItemsByNextTokenResult>

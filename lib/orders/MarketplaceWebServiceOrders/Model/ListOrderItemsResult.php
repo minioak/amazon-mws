@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 /**
@@ -32,7 +32,7 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * 
  * <li>NextToken: string</li>
  * <li>AmazonOrderId: string</li>
- * <li>OrderItems: MarketplaceWebServiceOrders_Model_OrderItemList</li>
+ * <li>OrderItems: array</li>
  *
  * </ul>
  */
@@ -42,9 +42,9 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function __construct($data = null)
     {
     $this->_fields = array (
-'NextToken' => array('FieldValue' => null, 'FieldType' => 'string'),
-'AmazonOrderId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'OrderItems' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_OrderItemList'),
+    'NextToken' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'AmazonOrderId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'OrderItems' => array('FieldValue' => array(), 'FieldType' => array('MarketplaceWebServiceOrders_Model_OrderItem'), 'ListMemberName' => 'OrderItem'),
     );
     parent::__construct($data);
     }
@@ -144,23 +144,38 @@ require_once (dirname(__FILE__) . '/../Model.php');
     /**
      * Get the value of the OrderItems property.
      *
-     * @return OrderItemList OrderItems.
+     * @return List<OrderItem> OrderItems.
      */
     public function getOrderItems()
     {
+        if ($this->_fields['OrderItems']['FieldValue'] == null)
+        {
+            $this->_fields['OrderItems']['FieldValue'] = array();
+        }
         return $this->_fields['OrderItems']['FieldValue'];
     }
 
     /**
      * Set the value of the OrderItems property.
      *
-     * @param MarketplaceWebServiceOrders_Model_OrderItemList orderItems
+     * @param array orderItems
      * @return this instance
      */
     public function setOrderItems($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['OrderItems']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear OrderItems.
+     */
+    public function unsetOrderItems()
+    {
+        $this->_fields['OrderItems']['FieldValue'] = array();
     }
 
     /**
@@ -170,20 +185,23 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetOrderItems()
     {
-                return !is_null($this->_fields['OrderItems']['FieldValue']);
+                return !empty($this->_fields['OrderItems']['FieldValue']);
             }
 
     /**
-     * Set the value of OrderItems, return this.
+     * Add values for OrderItems, return this.
      *
      * @param orderItems
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withOrderItems($value)
+    public function withOrderItems()
     {
-        $this->setOrderItems($value);
+        foreach (func_get_args() as $OrderItems)
+        {
+            $this->_fields['OrderItems']['FieldValue'][] = $OrderItems;
+        }
         return $this;
     }
 

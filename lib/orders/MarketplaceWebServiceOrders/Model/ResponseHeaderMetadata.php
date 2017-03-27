@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 class MarketplaceWebServiceOrders_Model_ResponseHeaderMetadata {
@@ -29,12 +29,12 @@ class MarketplaceWebServiceOrders_Model_ResponseHeaderMetadata {
   private $metadata = array();
 
   public function __construct($requestId = null, $responseContext = null, $timestamp = null,
-                              $quotaMax = null, $quotaResetsAt = null) {
+                              $quotaMax = null, $quotaRemaining = null, $quotaResetsAt = null) {
     $this->metadata[self::REQUEST_ID] = $requestId;
     $this->metadata[self::RESPONSE_CONTEXT] = $responseContext;
     $this->metadata[self::TIMESTAMP] = $timestamp;
     $this->metadata[self::QUOTA_MAX] = $quotaMax;
-    $this->metadata[self::QUOTA_REMAINING] = $quotaMax;
+    $this->metadata[self::QUOTA_REMAINING] = $quotaRemaining;
     $this->metadata[self::QUOTA_RESETS_AT] = $quotaResetsAt;
   }
 

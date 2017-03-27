@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 /**
@@ -33,7 +33,7 @@ require_once (dirname(__FILE__) . '/../Model.php');
  * <li>Status: string</li>
  * <li>Timestamp: string</li>
  * <li>MessageId: string</li>
- * <li>Messages: MarketplaceWebServiceOrders_Model_MessageList</li>
+ * <li>Messages: array</li>
  *
  * </ul>
  */
@@ -43,10 +43,10 @@ require_once (dirname(__FILE__) . '/../Model.php');
     public function __construct($data = null)
     {
     $this->_fields = array (
-'Status' => array('FieldValue' => null, 'FieldType' => 'string'),
-'Timestamp' => array('FieldValue' => null, 'FieldType' => 'string'),
-'MessageId' => array('FieldValue' => null, 'FieldType' => 'string'),
-'Messages' => array('FieldValue' => null, 'FieldType' => 'MarketplaceWebServiceOrders_Model_MessageList'),
+    'Status' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'Timestamp' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'MessageId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'Messages' => array('FieldValue' => array(), 'FieldType' => array('MarketplaceWebServiceOrders_Model_Message'), 'ListMemberName' => 'Message'),
     );
     parent::__construct($data);
     }
@@ -192,23 +192,38 @@ require_once (dirname(__FILE__) . '/../Model.php');
     /**
      * Get the value of the Messages property.
      *
-     * @return MessageList Messages.
+     * @return List<Message> Messages.
      */
     public function getMessages()
     {
+        if ($this->_fields['Messages']['FieldValue'] == null)
+        {
+            $this->_fields['Messages']['FieldValue'] = array();
+        }
         return $this->_fields['Messages']['FieldValue'];
     }
 
     /**
      * Set the value of the Messages property.
      *
-     * @param MarketplaceWebServiceOrders_Model_MessageList messages
+     * @param array messages
      * @return this instance
      */
     public function setMessages($value)
     {
+        if (!$this->_isNumericArray($value)) {
+            $value = array ($value);
+        }
         $this->_fields['Messages']['FieldValue'] = $value;
         return $this;
+    }
+
+    /**
+     * Clear Messages.
+     */
+    public function unsetMessages()
+    {
+        $this->_fields['Messages']['FieldValue'] = array();
     }
 
     /**
@@ -218,20 +233,23 @@ require_once (dirname(__FILE__) . '/../Model.php');
      */
     public function isSetMessages()
     {
-                return !is_null($this->_fields['Messages']['FieldValue']);
+                return !empty($this->_fields['Messages']['FieldValue']);
             }
 
     /**
-     * Set the value of Messages, return this.
+     * Add values for Messages, return this.
      *
      * @param messages
-     *             The new value to set.
+     *             New values to add.
      *
      * @return This instance.
      */
-    public function withMessages($value)
+    public function withMessages()
     {
-        $this->setMessages($value);
+        foreach (func_get_args() as $Messages)
+        {
+            $this->_fields['Messages']['FieldValue'][] = $Messages;
+        }
         return $this;
     }
 

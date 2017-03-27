@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2013 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2017 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  *
  * You may not use this file except in compliance with the License. 
@@ -12,9 +12,9 @@
  * PHP Version 5
  * @category Amazon
  * @package  Marketplace Web Service Orders
- * @version  2011-01-01
- * Library Version: 2013-11-01
- * Generated: Fri Nov 08 21:29:23 GMT 2013
+ * @version  2013-09-01
+ * Library Version: 2017-02-22
+ * Generated: Thu Mar 02 12:41:08 UTC 2017
  */
 
 /**
@@ -25,69 +25,69 @@ require_once (dirname(__FILE__) . '/../Model.php');
 
 
 /**
- * MarketplaceWebServiceOrders_Model_CommonInput
+ * MarketplaceWebServiceOrders_Model_BuyerCustomizedInfoDetail
  * 
  * Properties:
  * <ul>
  * 
- * <li>SellerId: string</li>
+ * <li>CustomizedURL: string</li>
  *
  * </ul>
  */
 
- class MarketplaceWebServiceOrders_Model_CommonInput extends MarketplaceWebServiceOrders_Model {
+ class MarketplaceWebServiceOrders_Model_BuyerCustomizedInfoDetail extends MarketplaceWebServiceOrders_Model {
 
     public function __construct($data = null)
     {
     $this->_fields = array (
-'SellerId' => array('FieldValue' => null, 'FieldType' => 'string'),
+    'CustomizedURL' => array('FieldValue' => null, 'FieldType' => 'string'),
     );
     parent::__construct($data);
     }
 
     /**
-     * Get the value of the SellerId property.
+     * Get the value of the CustomizedURL property.
      *
-     * @return String SellerId.
+     * @return String CustomizedURL.
      */
-    public function getSellerId()
+    public function getCustomizedURL()
     {
-        return $this->_fields['SellerId']['FieldValue'];
+        return $this->_fields['CustomizedURL']['FieldValue'];
     }
 
     /**
-     * Set the value of the SellerId property.
+     * Set the value of the CustomizedURL property.
      *
-     * @param string sellerId
+     * @param string customizedURL
      * @return this instance
      */
-    public function setSellerId($value)
+    public function setCustomizedURL($value)
     {
-        $this->_fields['SellerId']['FieldValue'] = $value;
+        $this->_fields['CustomizedURL']['FieldValue'] = $value;
         return $this;
     }
 
     /**
-     * Check to see if SellerId is set.
+     * Check to see if CustomizedURL is set.
      *
-     * @return true if SellerId is set.
+     * @return true if CustomizedURL is set.
      */
-    public function isSetSellerId()
+    public function isSetCustomizedURL()
     {
-                return !is_null($this->_fields['SellerId']['FieldValue']);
+                return !is_null($this->_fields['CustomizedURL']['FieldValue']);
             }
 
     /**
-     * Set the value of SellerId, return this.
+     * Set the value of CustomizedURL, return this.
      *
-     * @param sellerId
+     * @param customizedURL
      *             The new value to set.
      *
      * @return This instance.
      */
-    public function withSellerId($value)
+    public function withCustomizedURL($value)
     {
-        $this->setSellerId($value);
+        $this->setCustomizedURL($value);
         return $this;
     }
 
